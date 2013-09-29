@@ -2,8 +2,13 @@
 <html lang="en">
 	<head>
 		<title>System Statistics</title>
+		<script type="text/javascript" th:src="@{/resources/js/dataPoller.js}"></script>
 	</head>
 	<body>
-		Hello World!
+		<div>
+			<a href="#" onclick="window.dataPoller.start();">Start</a>|
+			<a href="#" onclick="window.dataPoller.stop();">Stop</a>
+		</div>
+		
 	</body>
 </html>

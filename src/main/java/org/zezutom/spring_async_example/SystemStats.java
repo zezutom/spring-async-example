@@ -17,10 +17,6 @@ public class SystemStats {
 		return osBean.getSystemCpuLoad();
 	}
 	
-	public long getMemoryTotal() {
-		return osBean.getTotalPhysicalMemorySize();
-	}
-
 	public long getMemoryFree() {
 		return osBean.getFreePhysicalMemorySize();
 	}	

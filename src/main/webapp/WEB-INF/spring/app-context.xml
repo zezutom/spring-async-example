@@ -9,7 +9,9 @@
 	<mvc:annotation-driven />
 	
 	<context:component-scan base-package="org.zezutom.spring_async_example" />
-
+	
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	
 	<bean id="templateResolver"
 		class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
 		<property name="prefix" value="/WEB-INF/templates/" />
