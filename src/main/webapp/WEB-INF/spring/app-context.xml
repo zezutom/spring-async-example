@@ -12,6 +12,14 @@
 	
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 	
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	
 	<bean id="templateResolver"
 		class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
 		<property name="prefix" value="/WEB-INF/templates/" />

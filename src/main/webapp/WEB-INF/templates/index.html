@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>System Statistics</title>
-		<script type="text/javascript" th:src="@{/resources/js/dataPoller.js}"></script>
-	</head>
-	<body>
-		<div>
-			<a href="#" onclick="window.dataPoller.start();">Start</a>|
-			<a href="#" onclick="window.dataPoller.stop();">Stop</a>
-		</div>
-		
-	</body>
+<meta charset="utf-8" />
+<head>
+<title>System Statistics</title>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" th:src="@{/resources/js/charter.js}"></script>
+<script type="text/javascript" th:src="@{/resources/js/dataPoller.js}"></script>
+<link th:href="@{/resources/css/main.css}" type="text/css" rel="stylesheet" />
+</head>
+<body onload="window.charter.init();">
+	<div>
+		<a href="#" onclick="window.dataPoller.start();">Start</a>| <a
+			href="#" onclick="window.dataPoller.stop();">Stop</a>
+	</div>
+	<div id="container"></div>
+</body>
 </html>

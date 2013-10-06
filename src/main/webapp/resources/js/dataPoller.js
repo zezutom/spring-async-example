@@ -19,8 +19,8 @@
 		    
 		    xmlhttp.onreadystatechange = function() {
 		        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		            //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-		        	// TODO response processing
+		        	// TODO push new data to the graph
+		        	//window.chartDrawer.update(xmlhttp.responseText);
 		        	console.log(xmlhttp.responseText);
 		        }
 		    }
