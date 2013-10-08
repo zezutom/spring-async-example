@@ -25,7 +25,7 @@ import org.springframework.web.client.RestTemplate;
 import org.zezutom.spring_async_example.model.Quote;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { TestAppContext.class })
+@ContextConfiguration(classes = { TestAppConfig.class })
 public class QuoteServiceTest {
 
 	@Autowired

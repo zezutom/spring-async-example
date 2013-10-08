@@ -1,6 +1,7 @@
 package org.zezutom.spring_async_example;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -22,8 +23,13 @@ public class AppController {
 	}
 	
 	@RequestMapping(value="quotes/get", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Quote> getQuote() {
-		return quoteService.getQuotes();
+	public @ResponseBody Callable<List<Quote>> getQuotes() {
+		return new Callable<List<Quote>>() {
+			@Override
+			public List<Quote> call() throws Exception {			
+				return quoteService.getQuotes();
+			}
+		};
 	}
 	
 }
