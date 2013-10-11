@@ -3,7 +3,8 @@
 	function QuoteManager() {self = this;}
 		
 	QuoteManager.prototype = {
-		pollId: null,		
+		pollId: null,	
+		fields: ['Symbol', 'BidRealtime', 'AskRealtime', 'ChangeRealtime', 'LastTradeTime'],
 		start: function() {
 			pollId = setInterval(this.poll, 3000);
 		},
@@ -31,36 +32,30 @@
 		},
 		updateQuotes: function(quotes) {
 			var table = document.getElementsByTagName('table')[0];
-			
-			var updateCell = function(cell, value) {
-				cell.innerHTML = value;
-			};
-			
-			var updateRow = function(quote) {
-				var props = ['Symbol', 'BidRealtime', 'AskRealtime', 'ChangeRealtime', 'LastUpdateTime'];
+						
+			var updateRow = function(row, quote) {
 				var cols = row.getElementsByTagName('td');
 				
-				for (var c in cols) 
-					updateCell(cols[c], quote[props[c]]);
+				for (var c in cols)
+					cols[c].innerHTML = quote[self.fields[c]];
 			}; 
 
-			var insertRow = function(quote) {					
+			var appendRow = function(id) {					
 				row = document.createElement('tr');
-				row.setAttribute('id', quote.Symbol);
+				row.setAttribute('id', id);
 				
-				for (var i=0; i<4; i++) 
+				for (var i = 0; i < self.fields.length; i++)
 					row.appendChild(document.createElement('td'));
-				updateRow(quote);		
+				
 				table.appendChild(row);
+				return row;
 			};
 						
 			quotes.forEach(function(quote) {
 				var row = document.getElementById(quote.Symbol);
 				
-				if (row) 
-					updateRow(quote);
-				else 
-					insertRow(quote);				
+				if (!row) row = appendRow(quote.Symbol); 
+				updateRow(row, quote);			
 			});
 		}
 	};	
