@@ -5,6 +5,11 @@
 	QuoteManager.prototype = {
 		pollId: null,	
 		fields: ['Symbol', 'BidRealtime', 'AskRealtime', 'ChangeRealtime', 'LastTradeTime'],
+		styledFields: [
+		               {name: 'BidRealtime', 	cssClass: 'highlight'},
+		               {name: 'AskRealtime', 	cssClass: 'highlight'},
+		               {name: 'ChangeRealtime', cssClass: 'upDown'}
+		              ], 
 		start: function() {
 			pollId = setInterval(this.poll, 3000);
 		},
@@ -31,13 +36,30 @@
 		    xmlhttp.send();			
 		},
 		updateQuotes: function(quotes) {
-			var table = document.getElementsByTagName('table')[0];
-						
+			var table = document.getElementsByTagName('tbody')[0];
+					
+			var styleCol = function(col, field) {
+				for (var f in self.styledFields) {
+					var styledField = self.styledFields[f];
+					
+					if (styledField.name === field) {
+						col.className = styledField.cssClass;
+						break;
+					}
+				}				
+			};
+			
 			var updateRow = function(row, quote) {
 				var cols = row.getElementsByTagName('td');
-				
-				for (var c in cols)
-					cols[c].innerHTML = quote[self.fields[c]];
+								
+				for (var c in cols) {
+					var field = self.fields[c];
+					var col = cols[c];
+					
+					col.innerHTML = quote[field];
+					styleCol(col, field);
+				}
+					
 			}; 
 
 			var appendRow = function(id) {					

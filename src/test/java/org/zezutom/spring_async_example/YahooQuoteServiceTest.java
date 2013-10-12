@@ -43,7 +43,7 @@ public class YahooQuoteServiceTest {
 	}
 
 	@Test
-	public void getQuotes() throws IOException {
+	public void getAllQuotes() throws IOException {
 		mockServer
 				.expect(requestTo(getQuotesUrl()))
 				.andExpect(method(HttpMethod.GET))
@@ -51,7 +51,7 @@ public class YahooQuoteServiceTest {
 						withSuccess(getJson("quotes.json"),
 								MediaType.APPLICATION_JSON));
 
-		List<Quote> quotes = quoteService.getQuotes();
+		List<Quote> quotes = quoteService.getAllQuotes();
 		assertNotNull(quotes);
 		assertTrue(quotes.size() == 4);
 

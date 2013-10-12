@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +21,8 @@ public class AppController {
 	private QuoteService quoteService;
 	
 	@RequestMapping("/")
-	public String home() {
+	public String home(Model model) {
+		model.addAttribute("quotes", quoteService.getAllQuotes());
 		return "index";
 	}
 	
@@ -29,7 +31,7 @@ public class AppController {
 		return new Callable<List<Quote>>() {
 			@Override
 			public List<Quote> call() throws Exception {			
-				return quoteService.getQuotes();
+				return quoteService.getChangedQuotes();
 			}
 		};
 	}

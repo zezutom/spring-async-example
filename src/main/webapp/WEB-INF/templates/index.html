@@ -8,17 +8,24 @@
 </head>
 <body>
 	<table>
-		<caption>Stock Quotes Live!</caption>
 		<thead>
 			<tr>
-				<td>Symbol</td>
-				<td>Bid</td>
-				<td>Ask</td>
-				<td>Change</td>
-				<td>Update Time</td>
+				<th>Symbol</th>
+				<th>Bid</th>
+				<th>Ask</th>
+				<th>Change</th>
+				<th>Update Time</th>
 			</tr>
 		</thead>	
-		<tbody></tbody>
-	</table>
+		<tbody>
+			<tr th:each="quote : ${quotes}" th:id="${quote.symbol}">
+				<td th:text="${quote.symbol}" />
+				<td th:text="${quote.bid}" />
+				<td th:text="${quote.ask}" />
+				<td th:text="${quote.change}" />
+				<td th:text="${quote.lastTradeTime}" />
+			</tr>
+		</tbody>
+	</table>	
 </body>
 </html>

@@ -22,8 +22,8 @@ public class DefaultQuoteServiceTest {
 	private DefaultQuoteService quoteService;
 	
 	@Test
-	public void getQuotes() {
-		List<Quote> quotes = quoteService.getQuotes();
+	public void getAllQuotes() {
+		List<Quote> quotes = quoteService.getAllQuotes();
 		
 		assertNotNull(quotes);
 		for (Quote quote : quotes)

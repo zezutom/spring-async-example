@@ -1,0 +1,88 @@
+body {
+	font-family: 'trebuchet MS', 'Lucida sans', 'Arial';
+	font-size: 14px;
+	color: #444;	
+}
+
+table {
+	border-spacing: 0;
+	width: 100%;
+	display: table;	
+	border-collapse: separate;			
+	border: solid #ccc 1px;
+	border-radius: 6px;
+	box-shadow: 0 1px 1px #ccc;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+	-webkit-box-shadow: 0 1px 1px #ccc;
+	-moz-box-shadow: 0 1px 1px #ccc;	
+}
+
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;	
+}
+
+th, td {
+	display: table-cell;
+	vertical-align: inherit;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 10px;		
+}
+
+th {
+	background-color: #dce9f9;
+}
+
+th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+    border-left: none;
+}
+
+th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+tr:nth-of-type(odd) {
+  background-color:#fbf8e9;
+}
+
+td:first-child {
+	border-left:none;
+}
+
+@keyframes myfirst
+{
+	from {background:red;}
+	to {background:yellow;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+	from {background:red;}
+	to {background:yellow;}
+}
+
+.highlight {
+	animation:myfirst 2s;
+	-webkit-animation:myfirst 2s; /* Safari and Chrome */	
+	background-color:inherit;
+}

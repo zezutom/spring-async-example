@@ -23,7 +23,12 @@ public class YahooQuoteService implements QuoteService {
 	private RestTemplate template;
 	
 	@Override
-	public List<Quote> getQuotes() {	
+	public List<Quote> getAllQuotes() {
+		return getChangedQuotes();
+	}
+	
+	@Override
+	public List<Quote> getChangedQuotes() {	
 		QuoteResponse response = template.getForObject(URL, QuoteResponse.class, QID, getSymbols(), FMT, ENV);
 		return response.getQuotes();
 	}

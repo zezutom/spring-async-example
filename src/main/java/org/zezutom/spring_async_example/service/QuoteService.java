@@ -8,5 +8,7 @@ public interface QuoteService {
 	
 	public static final String[] SYMBOLS = new String[] {"YHOO", "AAPL", "GOOG", "MSFT"};
 	
-	List<Quote> getQuotes();
+	List<Quote> getAllQuotes();
+	
+	List<Quote> getChangedQuotes();
 }
