@@ -70,7 +70,7 @@ public class DefaultQuoteService implements QuoteService {
 	}
 
 	private String getRandomPrice() {
-		return number2String(Math.random() * 100, "0.00");
+		return number2String(Math.random() * 100, "00.00");
 	}
 
 	private String getPriceChange(Quote quote) {
@@ -81,7 +81,7 @@ public class DefaultQuoteService implements QuoteService {
 			change = string2Number(quote.bid)
 					- string2Number(previousQuote.bid);
 
-		return number2String(change, "0.00");
+		return (change == 0d) ? "-" : number2String(change, "+#,##00.00;-#");
 	}
 
 	private String getLastTradeTime() {

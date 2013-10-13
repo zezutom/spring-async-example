@@ -19,13 +19,17 @@
 		</thead>	
 		<tbody>
 			<tr th:each="quote : ${quotes}" th:id="${quote.symbol}">
-				<td th:text="${quote.symbol}" />
-				<td th:text="${quote.bid}" />
-				<td th:text="${quote.ask}" />
-				<td th:text="${quote.change}" />
-				<td th:text="${quote.lastTradeTime}" />
+				<td class="cell" th:text="${quote.symbol}"></td>
+				<td class="cell highlight" th:text="${quote.bid}"></td>
+				<td class="cell highlight" th:text="${quote.ask}"></td>
+				<td class="cell" th:text="${quote.change}"></td>
+				<td class="cell" th:text="${quote.lastTradeTime}"></td>
 			</tr>
 		</tbody>
 	</table>	
+	<div class="menu">
+		<button id="pollButton">Start</button>
+	</div>
+	
 </body>
 </html>
