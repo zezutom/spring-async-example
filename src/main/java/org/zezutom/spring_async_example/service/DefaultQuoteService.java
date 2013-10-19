@@ -17,11 +17,11 @@ public class DefaultQuoteService implements QuoteService {
 
 	private static final Random random = new Random();
 
-	private Map<String, Quote> recentQuotes = new HashMap<>();
+	private Map<String, Quote> recentQuotes = new HashMap<String, Quote>();
 
 	@Override
 	public List<Quote> getAllQuotes() {		
-		List<Quote> quotes = new ArrayList<>();
+		List<Quote> quotes = new ArrayList<Quote>();
 		
 		for (String symbol : SYMBOLS) {
 			Quote quote = createQuote(symbol);
@@ -33,7 +33,7 @@ public class DefaultQuoteService implements QuoteService {
 
 	@Override
 	public List<Quote> getChangedQuotes() {
-		List<Quote> quotes = new ArrayList<>();
+		List<Quote> quotes = new ArrayList<Quote>();
 
 		for (String symbol : SYMBOLS) {
 			Quote quote = getQuote(symbol);

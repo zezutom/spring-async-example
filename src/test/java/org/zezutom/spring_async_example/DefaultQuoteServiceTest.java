@@ -15,7 +15,7 @@ import org.zezutom.spring_async_example.service.DefaultQuoteService;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { AppConfig.class })
+@ContextConfiguration(classes = { AppTestConfig.class })
 public class DefaultQuoteServiceTest {
 
 	@Autowired

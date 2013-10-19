@@ -26,7 +26,7 @@ import org.zezutom.spring_async_example.model.Quote;
 import org.zezutom.spring_async_example.service.YahooQuoteService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { AppConfig.class })
+@ContextConfiguration(classes = { AppTestConfig.class })
 public class YahooQuoteServiceTest {
 
 	@Autowired
